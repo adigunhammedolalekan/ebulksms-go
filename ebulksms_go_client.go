@@ -32,11 +32,12 @@ import (
 }*/
 
 const apiUrl = "http://api.ebulksms.com:8080/sendsms.json"
+
 // SMS is the rep of the above json structure
 type SMS struct {
-	Auth *Auth `json:"auth"`
-	Message *SmsMessage `json:"message"`
-	Recipients struct{
+	Auth       *Auth       `json:"auth"`
+	Message    *SmsMessage `json:"message"`
+	Recipients struct {
 		GSM []GSM `json:"gsm"`
 	} `json:"recipients"`
 	DndSender int `json:"dndsender"`
@@ -44,13 +45,13 @@ type SMS struct {
 
 type Auth struct {
 	Username string `json:"username"`
-	ApiKey string `json:"apikey"`
+	ApiKey   string `json:"apikey"`
 }
 
 type SmsMessage struct {
-	Sender string `json:"sender"`
+	Sender      string `json:"sender"`
 	MessageText string `json:"messagetext"`
-	Flash string `json:"flash"`
+	Flash       string `json:"flash"`
 }
 
 type GSM struct {
@@ -59,30 +60,31 @@ type GSM struct {
 }
 
 type Message struct {
-	Text string
+	Text   string
 	Phones []string
-	Flash string
-	Dnd int
+	Flash  string
+	Dnd    int
 	Sender string
 }
 
 // Response is the api response object
 /*{
 	"response": {
-	"status": "SUCCESS",
-	"totalsent": 1,
-	"cost": 1
+		"status": "SUCCESS",
+		"totalsent": 1,
+		"cost": 1
+	}
 }*/
 type Response struct {
 	Body struct {
-		Status string `json:"status"`
-		Cost int `json:"cost"`
-		TotalSent int `json:"totalsent"`
+		Status    string `json:"status"`
+		Cost      int    `json:"cost"`
+		TotalSent int    `json:"totalsent"`
 	} `json:"response"`
 }
 
 type EbulkSmsClient struct {
-	httpClient *http.Client
+	httpClient       *http.Client
 	Username, ApiKey string
 }
 
