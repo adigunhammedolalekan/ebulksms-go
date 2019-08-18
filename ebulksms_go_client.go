@@ -12,8 +12,8 @@ import (
 
 /*{ "SMS": {
 	"auth": {
-	"username": "adigunadunfe@gmail.com",
-	"apikey": "661edb281c3111a871317976887ea6496bdac014"
+	"username": "@gmail.com",
+	"apikey": ""
 
 	},
 	"message": {
